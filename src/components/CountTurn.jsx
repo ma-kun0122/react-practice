@@ -1,3 +1,6 @@
+import React from 'react';
+import styled from "styled-components"
+
 //○×交代の関数→各マスが何個埋まっているかで○×を決定
 function CountTurn(){
     let number =0;
