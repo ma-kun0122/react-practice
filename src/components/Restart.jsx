@@ -1,9 +1,13 @@
 import React from 'react';
 import styled from "styled-components"
 
+const RestartButton =styled.a`
+display: block;
+
+`
+
 //リスタートするコンポーネント
-function Restart(){
 
-}
 
-export default Restart;
+
+//export default Restart;
