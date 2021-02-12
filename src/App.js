@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components"
 
 import Square from "./components/Square"
-//import Restart from "./components/Restart"
+
 
 //styled-componentsを使った各要素定義
 const Container =styled.div`
@@ -96,16 +96,12 @@ class App extends React.Component {
 enterContent = ()=>{
   if(!this.state.value){
     this.setState({
-    contents: this.state.value= "○"
+    content: this.state.value= "○"
   });
   }
 };
 
-onRestart = ()=>{
-    this.setState({
-    
-  });
-  }
+
 
     render() {
       return (
@@ -127,37 +123,37 @@ onRestart = ()=>{
             <Table> 
               <Row>
                 <Cell onClick={this.enterContent}>
-                  {this.state.contents[0]}
+                  {this.state.content}
                 </Cell>
                 <Cell onClick={this.enterContent}>
-                  {this.state.contents[1]}
+                  {this.state.content}
                 </Cell>
                 <Cell onClick={this.enterContent}>
-                  {this.state.contents[2]}
+                  {this.state.content}
                 </Cell>
               </Row>
 
               <Row>
                 <Cell onClick={this.enterContent}>
-                  {this.state.contents[3]}
+                  {this.state.content}
                 </Cell>
                 <Cell onClick={this.enterContent}>
-                  {this.state.contents[4]}
+                  {this.state.content}
                 </Cell>
                 <Cell onClick={this.enterContent}>
-                  {this.state.contents[5]}
+                  {this.state.content}
                 </Cell>
               </Row>
           
               <Row>
                 <Cell onClick={this.enterContent}>
-                  {this.state.contents[6]}
+                  {this.state.content}
                 </Cell>
                 <Cell onClick={this.enterContent}>
-                  {this.state.contents[7]}
+                  {this.state.content}
                 </Cell>
                 <Cell onClick={this.enterContent}>
-                  {this.state.contents[8]}
+                  {this.state.content}
                 </Cell>
               </Row>
           
