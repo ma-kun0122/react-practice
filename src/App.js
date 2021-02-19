@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components"
+import Board from "./components/Board"
 
-import Square from "./components/Square"
 
 
 //styled-componentsを使った各要素定義
@@ -31,53 +31,19 @@ const Turn =styled.div`
   text-align: center;
   `
 
-const TurnItemCircle =styled.div`
+const TurnItem =styled.div`
   padding: 8px;
   font-size: 1.5rem;
   width: 100%;
   text-align: center;
   border-bottom: 3px solid black; //この下線が切り替わる必要あり。
-  `
-const TurnItemCross =styled.div`
-  padding: 8px;
-  font-size: 1.5rem;
-  width: 100%;
-  text-align: center;
-  `
-
-const State =styled.div`
 `
 
-const StateMessage =styled.span`
-  padding: 8px;
-  text-align: center;
-  display: block;
-  `
-
-const Board =styled.div`
-  padding: 16px;  
-`
 
 const Table =styled.div`
 width: 140px;
 height: 140px;
 `  
-
-const Row =styled.div`
-display: flex;
-`
-
-const Cell =styled.div`
-width: 3rem;
-height: 3rem;
-border: 0.5px solid black;
-`
-
-
-const Footer =styled.div`
-padding: 16px;
-`
-
 const RestartButton =styled.a`
 display: block;
 `
@@ -89,19 +55,17 @@ class App extends React.Component {
 　constructor(props){
    super(props)
    this.state = {
-    contents: new Array(9)
+    contents: Array(9).fill(null)
     };
 }
 
-enterContent = ()=>{
-  if(!this.state.value){
+
+//各マスに○バツを入れる関数
+enterContent = (i)=>{
     this.setState({
-    content: this.state.value= "○"
-  });
-  }
+    contents: this.state.contents[i]
+    })
 };
-
-
 
     render() {
       return (
@@ -110,65 +74,16 @@ enterContent = ()=>{
           <Title>TIC TAC TOE</Title>
           <Display>　{/*　→display部分では①「ChangeUnderLine」②「CountTurn、ターン認識」のコンポーネントをはめこむ?　*/}
             <Turn>
-              <TurnItemCircle>○</TurnItemCircle>
-              <TurnItemCross>×</TurnItemCross>
+              <TurnItem>○</TurnItem>
+              <TurnItem>×</TurnItem>
             </Turn>
-            <State>
-              <StateMessage></StateMessage>
-            </State>
+           
           </Display>
-
+          <Table>
         
-          <Board>
-            <Table> 
-              <Row>
-                <Cell onClick={this.enterContent}>
-                  {this.state.content}
-                </Cell>
-                <Cell onClick={this.enterContent}>
-                  {this.state.content}
-                </Cell>
-                <Cell onClick={this.enterContent}>
-                  {this.state.content}
-                </Cell>
-              </Row>
-
-              <Row>
-                <Cell onClick={this.enterContent}>
-                  {this.state.content}
-                </Cell>
-                <Cell onClick={this.enterContent}>
-                  {this.state.content}
-                </Cell>
-                <Cell onClick={this.enterContent}>
-                  {this.state.content}
-                </Cell>
-              </Row>
-          
-              <Row>
-                <Cell onClick={this.enterContent}>
-                  {this.state.content}
-                </Cell>
-                <Cell onClick={this.enterContent}>
-                  {this.state.content}
-                </Cell>
-                <Cell onClick={this.enterContent}>
-                  {this.state.content}
-                </Cell>
-              </Row>
-          
-            </Table>
-          </Board>
-          
-
-          <Footer>　{/*　→footerの部分では①「JudgeWinner」②「Restart」のコンポーネントをはめこむ　*/}
-            <StateMessage>
-            　starting...
-            </StateMessage>
-            <RestartButton onClick>
-              
-            </RestartButton>
-          </Footer>   
+           <Board/>
+         
+          </Table>
 
         </Main>
       </Container> 
