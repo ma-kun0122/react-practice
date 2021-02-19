@@ -1,36 +1,42 @@
 import React from 'react';
 import styled from "styled-components"
-import Contents from "./Contents"
 
+const CellBox = styled.div`
+text-align: center;
+width: 3rem;
+height: 3rem;
+border: 0.5px solid black;
+cursor:pointer
+`
 
-//https://nakanisi-yusuke.gitbooks.io/react-hands-on/content/2nd/button-3092-30af-30ea-30c3-30af-shi-306b-state-setstate-3067-bian-geng-3059-308b.html
 class Cell extends React.Component {
   constructor(props){
     super(props);
     this.state= { 
-    count: 0}
-  }
-
-  //何マス埋まっているか確認し、次に何を入れるか判断する関数
-  enterContents= ()=>{
-    if(this.state.count% 2 == 0){
-      return "◯"
-    }else if(this.state.count % 2 !== 0)
-    return "×"
+    cellContent : null,
+    count : 0
+    }
   }
 
   //勝敗チェック関数
-  judgeWinner= ()=>{
-
+  //◯か×か、どちらを入れるか判断する関数(都度、最後に勝敗チェック関数を差し込んでいる)
+  enterContent= ()=>{
+    if(this.props.checkContent % 2 === 0){
+      this.setState({
+        cellContent : "◯"
+      })
+    }else if(this.props.checkContent % 2 !== 0){
+      this.setState({
+        cellContent : "×"
+      })
+    }return
   }
-
   render() {
     return (
-      <div onClick={()=>{this.setState( {count: this.state.count +1})}}>
-
-        {this.props.value}
-        {/*<p>{this.state.count}回クリック</p>*/}
-      </div>
+      <CellBox  onClick={this.enterContent}> {/*ここではクリックしたら◯か×何が入るイベントにしたい*/}
+        {/*valueは、{this.props.value}です*/}
+        {this.state.cellContent}
+      </CellBox>
     );
   }
 }
