@@ -19,19 +19,18 @@ class Board extends React.Component{
   }
 
   cellNumber = (i)　=>{
-    return <Cell value ={i} />
+    return <Cell value ={i}　checkContent={this.checkContent} />
   }//cellNumber(i)は配列のi番目。
 
 
 //全てのマスのうち、何マス空いているかを確認して返す関数
-  checkContent = ()　=>{
-    let count = this.state.count
+  checkContent = ()=> {
     for(let i = 0; i <= 8; i ++){
-      if(this.cellNumber(i).innerHTML !=""){//中身に何も入ってない場合、1カウントしていく
+      if(this.cellNumber(i).innerHTML !==""){//中身に何も入ってない場合、1カウントしていく
         this.setState({count: this.state.count +1})
       }
     }
-    return
+    return this.state.count;
   }
 
   render(){

@@ -20,7 +20,8 @@ class Cell extends React.Component {
 
   //勝敗チェック関数
   //◯か×か、どちらを入れるか判断する関数(都度、最後に勝敗チェック関数を差し込んでいる)
-  enterContent= ()=>{
+  enterContent= ()=> {
+    console.log(this.props.checkContent)
     if(this.props.checkContent % 2 === 0){
       this.setState({
         cellContent : "◯"
@@ -29,7 +30,7 @@ class Cell extends React.Component {
       this.setState({
         cellContent : "×"
       })
-    }return
+    }return 
   }
   render() {
     return (
