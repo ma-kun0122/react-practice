@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from "styled-components"
+import Board from "./Board"
 
 
 const TurnContainer =styled.div`
@@ -18,13 +19,21 @@ border-bottom: 3px solid black; //この下線が加わる必要あり
 class Display extends React.Component{
     constructor(props){
       super(props)
-
+      this.state ={
+          countNum: 0
+      }
+    }  
+    
+    changeUnderLine = ()=> {
+        return <Board
+                countNum ={this.state.countNum}
+                />
     }
     render(){
         return(
             <TurnContainer>
-                <TurnItem>◯</TurnItem>
-                <TurnItem>×</TurnItem>
+                <TurnItem className = "circle">◯</TurnItem>
+                <TurnItem className = "cross">×</TurnItem>
             </TurnContainer>
         )
     }

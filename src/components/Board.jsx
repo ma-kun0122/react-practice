@@ -14,23 +14,28 @@ class Board extends React.Component{
   constructor(props){
     super(props)
     this.state={
-      count: 0
+      countNum: 0
     }
   }
 
   cellNumber = (i)　=>{
-    return <Cell value ={i}　checkContent={this.checkContent} />
+    return  <Cell
+              value ={i}
+              checkContent={()=>this.checkContent()}
+              countNum ={this.state.countNum}
+            />
   }//cellNumber(i)は配列のi番目。
 
 
 //全てのマスのうち、何マス空いているかを確認して返す関数
   checkContent = ()=> {
     for(let i = 0; i <= 8; i ++){
-      if(this.cellNumber(i).innerHTML !==""){//中身に何も入ってない場合、1カウントしていく
-        this.setState({count: this.state.count +1})
+      if(this.cellNumber(i) !== null){
+        this.setState({
+          countNum : this.state.countNum + 1
+        })
       }
-    }
-    return this.state.count;
+    }console.log(this.state.countNum)
   }
 
   render(){
