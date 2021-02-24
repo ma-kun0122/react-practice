@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components"
-import Board from "./Board"
+import Cell from "./Cell"
 
 
 const TurnContainer =styled.div`
@@ -16,19 +16,26 @@ width: 100%;
 border-bottom: 3px solid black; //この下線が加わる必要あり
 `
 
+
+//https://qiita.com/olt/items/c96795e5bdf1058cd547 →スタイルの動的更新の記事
+
 class Display extends React.Component{
     constructor(props){
       super(props)
       this.state ={
-          countNum: 0
+          countNum: 0,
+          stylesSendButton: {}
       }
     }  
+
+
     
     changeUnderLine = ()=> {
-        return <Board
-                countNum ={this.state.countNum}
-                />
+      
+    if(this.state.cellContent !== null){//すでに埋まっていたら更新しない機構
+　　　return 
     }
+  }
     render(){
         return(
             <TurnContainer>

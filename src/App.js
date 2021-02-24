@@ -6,8 +6,6 @@ import Board from "./components/Board"
 import Footer from "./components/Footer"
 
 
-
-
 //styled-componentsを使った各要素定義
 const Container =styled.div`
   display: flex;
