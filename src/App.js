@@ -6,6 +6,8 @@ import Board from "./components/Board"
 import Footer from "./components/Footer"
 
 
+
+
 //styled-componentsを使った各要素定義
 const Container =styled.div`
   display: flex;
@@ -18,10 +20,7 @@ const Main =styled.div`
   text-align:center;
 `
 
-const Table =styled.div`
-width: 140px;
-height: 140px;
-`  
+
 
 class App extends React.Component {
 　constructor(props){
@@ -32,10 +31,7 @@ class App extends React.Component {
       <Container>  
         <Main>
           <Header/>
-          <Display/>
-          <Table>
           <Board/>
-          </Table>
           <Footer/>
         </Main>
       </Container> 

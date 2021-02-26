@@ -18,22 +18,20 @@ class Cell extends React.Component {
     }
   }
 
-　//勝敗チェックする関数
-　judgeWinner = ()=> {
 
-}　
-　//マス目クリック時に中身を入れる関数
-  //この中に勝敗チェック関数を入れ込む必要あり
+
   enterContent = ()=> {
     if(this.state.cellContent !== null){//すでに埋まっていたら更新しない機構
 　　　return 
     }else if(this.props.countNum == 0 || this.props.countNum % 2 == 0){
-      this.props.checkContent()
+      this.props.checkContent() //埋まってるマス目数確認
+      //this.props.changeUnderLine()　//下線入れ替え
       this.setState({
         cellContent : "◯"
       })
     }else if(this.props.checkContent() % 2  !== 0){
-      this.props.checkContent()
+      this.props.checkContent()　//埋まってるマス目数確認
+      //this.props.changeUnderLine()　//下線入れ替え
       this.setState({
         cellContent : "×"
       })
@@ -41,10 +39,14 @@ class Cell extends React.Component {
   }
   render() {
     return (
-      <CellBox  onClick= {()=>this.enterContent() }> {/*ここではクリックしたら◯か×何が入るイベントにしたい*/}
-        {/*valueは、{this.props.value}*/}
-        {this.state.cellContent}
-      </CellBox>
+      <React.Fragment>
+      
+        <div>{this.props.cellContent}</div>
+
+        <CellBox  onClick= {()=>this.enterContent()}> {/*ここではクリックしたら◯か×何が入るイベントにしたい*/}
+          {this.state.cellContent}
+        </CellBox>
+      </React.Fragment>
     );
   }
 }

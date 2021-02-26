@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components"
-
+import Board from "./Board"
 
 const FooterContainer = styled.div`
 display: block;
@@ -24,19 +24,29 @@ padding: 4px 16px;
  color:white
   }
 `
+const WINNING_PATTERNS = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6]
+]
+
 
 class Footer extends React.Component {
     constructor(props){
       super(props);
       this.state={message: "processing"}
     } 
-
-    //勝敗決着を検知し、メッセージを変える関数
-    //changeStateMessage= ()=>{
-        //勝敗決着を検知
-       //if(){}
-       // return this.state.message
-    //} 
+    
+    
+    judgeWinner = ()=>{
+      
+    }
+  
 
     handleClick() {
         window.location.reload()
@@ -46,7 +56,6 @@ class Footer extends React.Component {
       return (
         <FooterContainer>
             <StateMessage> 
-               {/*{this.changeStateMessage()}*/}
                processing
             </StateMessage>
             <RestartButton onClick={this.handleClick}> 
