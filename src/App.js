@@ -1,14 +1,8 @@
 import React from 'react';
 import styled from "styled-components"
 import Header from "./components/Header"
-import Display from "./components/Display"
 import Board from "./components/Board"
-import Footer from "./components/Footer"
 
-
-
-
-//styled-componentsを使った各要素定義
 const Container =styled.div`
   display: flex;
   align-items: center;
@@ -20,8 +14,6 @@ const Main =styled.div`
   text-align:center;
 `
 
-
-
 class App extends React.Component {
 　constructor(props){
    super(props)
@@ -32,7 +24,6 @@ class App extends React.Component {
         <Main>
           <Header/>
           <Board/>
-          <Footer/>
         </Main>
       </Container> 
       )

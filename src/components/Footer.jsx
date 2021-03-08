@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from "styled-components"
-import Board from "./Board"
 
 const FooterContainer = styled.div`
 display: block;
@@ -10,6 +9,7 @@ padding: 8px;
 const StateMessage = styled.div`
 justify-content: center;
 padding: 12px;
+
 `
 
 const RestartButton = styled.button`
@@ -21,33 +21,16 @@ padding: 4px 16px;
 &:hover {
   cursor: pointer;
   background-color:black;
- color:white
+  color:white
   }
 `
-const WINNING_PATTERNS = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8],
-  [2, 4, 6]
-]
 
-
+//関数コンポーネントにする
 class Footer extends React.Component {
     constructor(props){
       super(props);
-      this.state={message: "processing"}
     } 
     
-    
-    judgeWinner = ()=>{
-      
-    }
-  
-
     handleClick() {
         window.location.reload()
       }
@@ -56,7 +39,7 @@ class Footer extends React.Component {
       return (
         <FooterContainer>
             <StateMessage> 
-               processing
+            {this.props.message}
             </StateMessage>
             <RestartButton onClick={this.handleClick}> 
                RESTART
