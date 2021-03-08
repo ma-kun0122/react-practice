@@ -22,7 +22,7 @@ class Board extends React.Component{
   constructor(props){
     super(props);
     this.state={
-      active: false,
+      active: true,
       cells: Array(9).fill(null),
       winner: null,
       message: "processing",
@@ -34,7 +34,7 @@ class Board extends React.Component{
   changeUnderLine() {
     this.setState({active: !this.state.active})
     console.log(this.state.active)
-    return this.state.props;
+    return ;
   }
   
   //各マスに番号を与える
@@ -88,7 +88,6 @@ class Board extends React.Component{
     })
     this.judgewinner(cells)
     console.log(this.state.countNum)
-    debugger
     this.changeUnderLine()
   }
 }
