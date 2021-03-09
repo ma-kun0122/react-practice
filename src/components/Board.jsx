@@ -85,8 +85,8 @@ class Board extends React.Component{
     })
     this.judgewinner(cells)
     this.changeUnderLine()
-  }
-}
+  　}
+　}
 
 
   render(){
@@ -119,8 +119,8 @@ class Board extends React.Component{
         </Table>
         <Footer message = {this.state.message}/> 
       </> 
-      );
-}
+    );
+　}
 }
 
 export default Board;
