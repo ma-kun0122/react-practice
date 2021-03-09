@@ -22,7 +22,8 @@ class Board extends React.Component{
   constructor(props){
     super(props);
     this.state={
-      active: true,
+      circleTurn: true,
+      crossTurn: false,
       cells: Array(9).fill(null),
       winner: null,
       message: "processing",
@@ -32,8 +33,8 @@ class Board extends React.Component{
   
   //ターン下線入れ替え関数
   changeUnderLine() {
-    this.setState({active: !this.state.active})
-    console.log(this.state.active)
+    this.setState({circleTurn: !this.state.circleTurn})
+    this.setState({crossTurn: !this.state.crossTurn})
     return ;
   }
   
@@ -58,16 +59,12 @@ class Board extends React.Component{
     for (let i = 0; i < winnerPatten.length; i++) {
       const [a, b, c] = winnerPatten[i];
       if (cells[a] && cells[a] === cells[b] && cells[a] === cells[c]) {//勝敗決着するケース
-        //console.log(this.state.cells[a])
         this.setState({message: this.state.cells[a]　+ "win!"})
-        //console.log(this.state.message)
         return this.state.cells[a]
       }else if(this.state.countNum == 8){ //引き分けのケース
         this.setState({message: "draw"})
       }
-    }
-    console.log(this.state.cells)
-    return;
+    }return;
   }
   
 
@@ -87,7 +84,6 @@ class Board extends React.Component{
       countNum : this.state.countNum + 1,//埋まっているマス数カウント
     })
     this.judgewinner(cells)
-    console.log(this.state.countNum)
     this.changeUnderLine()
   }
 }
@@ -97,7 +93,8 @@ class Board extends React.Component{
     return (
       <>
         <TurnContainer>
-          <Display active = {this.state.active}>
+          <Display circleTurn = {this.state.circleTurn}
+                   crossTurn = {this.state.crossTurn}>
           </Display>
         </TurnContainer>
 

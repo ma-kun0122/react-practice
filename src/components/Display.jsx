@@ -1,27 +1,20 @@
 import React from 'react';
 import styled from "styled-components"
 
-
-//https://qiita.com/kiida/items/ceac662d9a8bdd960499
 const TurnItem =styled.div`
 text-align: center;
 padding:8px 16px;
-border-bottom: ${props => props.active ? 'solid' : ''};
+border-bottom: ${props => props.circleTurn ? 'solid' : ''};
+border-bottom: ${props => props.crossTurn ? 'solid' : ''};
 `
 
-
-class Display extends React.Component {
-    constructor(props){
-      super(props);
-    }
-    render() {
+function Display(props){
       return (
         <>  
-        <TurnItem active>◯</TurnItem>
-        <TurnItem active>×</TurnItem>
+        <TurnItem circleTurn={props.circleTurn}>◯</TurnItem>
+        <TurnItem crossTurn={props.crossTurn}>×</TurnItem>
         </>
-      );
-    }
-  }
+      )
+}      
 
 export default Display;

@@ -25,29 +25,21 @@ padding: 4px 16px;
   }
 `
 
-//関数コンポーネントにする
-class Footer extends React.Component {
-    constructor(props){
-      super(props);
-    } 
-    
-    handleClick() {
-        window.location.reload()
-      }
-
-    render() {
+function Footer(props){
+  const handleClick = ()=> {
+    window.location.reload()
+  }
       return (
         <FooterContainer>
             <StateMessage> 
-            {this.props.message}
+            {props.message}
             </StateMessage>
-            <RestartButton onClick={this.handleClick}> 
+            <RestartButton onClick={handleClick}> 
                RESTART
             </RestartButton>
 
         </FooterContainer>
       );
-    }
 }
 
 export default Footer;
